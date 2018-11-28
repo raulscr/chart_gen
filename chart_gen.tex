@@ -1,0 +1,52 @@
+\documentclass[14pt]{beamer}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{pgfplots}
+\usepackage{tikz}
+\setbeamersize{text margin left=0mm,text margin right=1mm}
+\setbeamertemplate{navigation symbols}{}
+\pgfplotsset{compat=1.8}
+
+
+\definecolor{midnightgreen}{rgb}{0.0, 0.25, 0.35}
+
+
+\begin{document}
+\xdef\maxvar{60}
+
+\foreach \x in {0,...,\maxvar}{
+\begin{frame}
+	\resizebox{13cm}{!}{
+		\centering
+		\begin{tikzpicture}
+		\begin{axis}[ 
+		xbar, xmin = 0, xmax = 300,
+		xlabel={Legend},
+		%extra tick style={tick align=outside, tick pos=left, grid style={dotted,black} },
+		%extra x ticks={50, 100, 150, 200, 250},		
+		symbolic y coords={bar1, bar2, bar3},
+		ytick=data,
+		nodes near coords, 
+		nodes near coords align={horizontal},
+		ytick=data,
+		]
+		
+		\pgfmathparse{30*\x/\maxvar}
+		\edef\mspvar{\pgfmathresult}
+		
+		\pgfmathparse{120*\x/\maxvar}
+		\edef\mcfvar{\pgfmathresult}
+		
+		\pgfmathparse{210*\x/\maxvar}
+		\edef\tvvar{\pgfmathresult}
+		
+		
+		\addplot[fill=midnightgreen] coordinates { (\mspvar,bar1) (\mcfvar,bar2) (\tvvar,bar3) };
+		\end{axis}
+		\end{tikzpicture} %width=6cm,height=7.59cm
+	}	
+\end{frame}
+}
+
+\end{document}
