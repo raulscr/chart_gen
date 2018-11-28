@@ -33,16 +33,16 @@
 		]
 		
 		\pgfmathparse{30*\x/\maxvar}
-		\edef\mspvar{\pgfmathresult}
+		\edef\vara{\pgfmathresult}
 		
 		\pgfmathparse{120*\x/\maxvar}
-		\edef\mcfvar{\pgfmathresult}
+		\edef\varb{\pgfmathresult}
 		
 		\pgfmathparse{210*\x/\maxvar}
-		\edef\tvvar{\pgfmathresult}
+		\edef\varc{\pgfmathresult}
 		
 		
-		\addplot[fill=midnightgreen] coordinates { (\mspvar,bar1) (\mcfvar,bar2) (\tvvar,bar3) };
+		\addplot[fill=midnightgreen] coordinates { (\vara,bar1) (\varb,bar2) (\varc,bar3) };
 		\end{axis}
 		\end{tikzpicture} %width=6cm,height=7.59cm
 	}	
